@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast"
 
 export const metadata: Metadata = {
   title: "Latif Ziyar MD Inc",
-  description: "Professional ITAD & Electronic Recycling Services",
+  description: "Our team provides comprehensive psychiatric services including addiction medicine, depression treatment, and Suboxone therapy to help you achieve lasting wellness.",
   // icons: {
   //   icon: "/logo.png"
   // },

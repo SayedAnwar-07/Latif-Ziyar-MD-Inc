@@ -2,27 +2,48 @@ import { blogPosts, authors } from "@/data/blog";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Calendar, Clock, User, ArrowLeft, Share2, MessageCircle } from "lucide-react";
+import { Calendar, Clock, ArrowLeft } from "lucide-react";
 
+// ✅ UPDATED: Use Promise-based params
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
+// ✅ FIXED: generateStaticParams remains the same
 export function generateStaticParams() {
   return blogPosts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-export default function BlogDetailPage({ params }: Props) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+// ✅ FIXED: Make generateMetadata async and await params
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
+  const post = blogPosts.find((p) => p.slug === slug);
+  if (!post) return {};
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      images: [{ url: post.image }],
+    },
+  };
+}
+
+// ✅ FIXED: Make page component async and await params
+export default async function BlogDetailPage({ params }: Props) {
+  // ✅ Await the params promise
+  const { slug } = await params;
+  const post = blogPosts.find((p) => p.slug === slug);
   const author = authors.find((a) => a.name === post?.author);
 
   if (!post) return notFound();
 
-  // Get related posts (same category, excluding current post)
   const relatedPosts = blogPosts
     .filter((p) => p.category === post.category && p.slug !== post.slug)
     .slice(0, 3);
@@ -32,8 +53,8 @@ export default function BlogDetailPage({ params }: Props) {
       {/* Header */}
       <header className="pt-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <Link 
-            href="/blog" 
+          <Link
+            href="/blog"
             className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
@@ -48,7 +69,6 @@ export default function BlogDetailPage({ params }: Props) {
             {/* Main Content */}
             <div className="lg:col-span-8">
               <article className="bg-white rounded-2xl shadow-sm overflow-hidden">
-                {/* Featured Image */}
                 <div className="relative h-96 lg:h-[480px]">
                   <Image
                     src={post.image}
@@ -59,7 +79,6 @@ export default function BlogDetailPage({ params }: Props) {
                   />
                 </div>
 
-                {/* Article Header */}
                 <div className="p-8 lg:p-12">
                   <div className="flex items-center gap-4 mb-6">
                     <span className="px-4 py-2 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
@@ -83,36 +102,37 @@ export default function BlogDetailPage({ params }: Props) {
                     {post.excerpt}
                   </p>
 
-                  {/* Author Info */}
                   <div className="flex items-center justify-between py-6 border-t border-b border-gray-100">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
-                        {post.author.split(' ').map(n => n[0]).join('')}
+                        {post.author.split(" ").map((n) => n[0]).join("")}
                       </div>
                       <div>
-                        <p className="font-semibold text-gray-900">{post.author}</p>
-                        <p className="text-sm text-gray-500">{author?.specialization}</p>
+                        <p className="font-semibold text-gray-900">
+                          {post.author}
+                        </p>
+                        <p className="text-sm text-gray-500">
+                          {author?.specialization}
+                        </p>
                       </div>
                     </div>
-
                   </div>
                 </div>
 
-                {/* Article Content */}
                 <div className="px-8 lg:px-12 pb-12">
                   <div className="prose prose-lg max-w-none">
                     <div className="text-gray-700 leading-relaxed space-y-6">
-                        {post.content.map((section, index) => (
+                      {post.content.map((section, index) => (
                         <div key={index}>
-                            <h4 className="font-semibold text-black">{section.header}</h4>
-                            <p>{section.description}</p>
+                          <h4 className="font-semibold text-black">
+                            {section.header}
+                          </h4>
+                          <p>{section.description}</p>
                         </div>
-                        ))}
+                      ))}
                     </div>
-                 </div>
+                  </div>
 
-
-                  {/* Tags */}
                   <div className="mt-12 pt-8 border-t border-gray-100">
                     <div className="flex flex-wrap gap-2">
                       {post.tags.map((tag) => (
@@ -128,10 +148,12 @@ export default function BlogDetailPage({ params }: Props) {
                 </div>
               </article>
 
-              {/* Related Posts */}
+              {/* Related posts */}
               {relatedPosts.length > 0 && (
                 <div className="mt-12">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-8">Related Articles</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-8">
+                    Related Articles
+                  </h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {relatedPosts.map((relatedPost) => (
                       <Link
@@ -169,43 +191,55 @@ export default function BlogDetailPage({ params }: Props) {
               )}
             </div>
 
-            {/* Sidebar */}
+            {/* Sidebar - rest of your JSX remains the same */}
             <div className="lg:col-span-4">
               <div className="space-y-8">
-                {/* About Card */}
                 <div className="bg-white rounded-2xl shadow-sm p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-4">About Our Blog</h3>
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">
+                    About Our Blog
+                  </h3>
                   <p className="text-gray-600 mb-4">
-                    Welcome to our mental health blog where we share insights, treatment approaches, 
-                    and resources to support your mental wellness journey.
+                    Welcome to our mental health blog where we share insights,
+                    treatment approaches, and resources to support your mental
+                    wellness journey.
                   </p>
                   <button className="w-full py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
                     Subscribe to Newsletter
                   </button>
                 </div>
 
-                {/* Categories */}
                 <div className="bg-white rounded-2xl shadow-sm p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-4">Categories</h3>
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">
+                    Categories
+                  </h3>
                   <div className="space-y-3">
-                    {Array.from(new Set(blogPosts.map(post => post.category))).map((category) => (
-                      <Link
-                        key={category}
-                        href={`/blog/${category.toLowerCase().replace(/\s+/g, '-')}`}
-                        className="flex items-center justify-between py-2 text-gray-600 hover:text-blue-600 transition-colors"
-                      >
-                        <span>{category}</span>
-                        <span className="bg-gray-100 text-gray-500 text-xs px-2 py-1 rounded-full">
-                          {blogPosts.filter(post => post.category === category).length}
-                        </span>
-                      </Link>
-                    ))}
+                    {Array.from(new Set(blogPosts.map((p) => p.category))).map(
+                      (category) => (
+                        <Link
+                          key={category}
+                          href={`/blog/category/${category
+                            .toLowerCase()
+                            .replace(/\s+/g, "-")}`}
+                          className="flex items-center justify-between py-2 text-gray-600 hover:text-blue-600 transition-colors"
+                        >
+                          <span>{category}</span>
+                          <span className="bg-gray-100 text-gray-500 text-xs px-2 py-1 rounded-full">
+                            {
+                              blogPosts.filter(
+                                (p) => p.category === category
+                              ).length
+                            }
+                          </span>
+                        </Link>
+                      )
+                    )}
                   </div>
                 </div>
 
-                {/* Recent Posts */}
                 <div className="bg-white rounded-2xl shadow-sm p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-4">Recent Posts</h3>
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">
+                    Recent Posts
+                  </h3>
                   <div className="space-y-4">
                     {blogPosts.slice(0, 4).map((recentPost) => (
                       <Link
@@ -234,7 +268,6 @@ export default function BlogDetailPage({ params }: Props) {
                   </div>
                 </div>
 
-                {/* Newsletter */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-700 rounded-2xl p-6 text-white">
                   <h3 className="text-lg font-bold mb-2">Stay Updated</h3>
                   <p className="text-blue-100 mb-4 text-sm">

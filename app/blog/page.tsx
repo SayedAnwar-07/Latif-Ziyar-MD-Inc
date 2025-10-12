@@ -2,14 +2,18 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { blogPosts, categories } from "@/data/blog";
 
+// ✅ UPDATED: searchParams is now a Promise
 interface BlogPageProps {
-  searchParams?: {
+  searchParams?: Promise<{
     category?: string;
-  };
+  }>;
 }
 
-export default function BlogPage({ searchParams }: BlogPageProps) {
-  const activeCategory = searchParams?.category || "All Posts";
+// ✅ FIXED: Make page component async and await searchParams
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+  // ✅ Await the searchParams promise
+  const resolvedSearchParams = await searchParams;
+  const activeCategory = resolvedSearchParams?.category || "All Posts";
 
   const filteredPosts =
     activeCategory === "All Posts"
