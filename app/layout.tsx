@@ -8,9 +8,9 @@ import { Toaster } from "react-hot-toast"
 export const metadata: Metadata = {
   title: "Latif Ziyar MD Inc",
   description: "Professional ITAD & Electronic Recycling Services",
-  icons: {
-    icon: "/logo.png"
-  },
+  // icons: {
+  //   icon: "/logo.png"
+  // },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
