@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital@0;1&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -51,6 +54,8 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
   }
   :root {
     --background: 0 0% 100%;

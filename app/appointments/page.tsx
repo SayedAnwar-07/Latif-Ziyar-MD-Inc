@@ -1,89 +1,98 @@
+import SectionHeader from "@/components/common/Header";
 import { Card, CardContent } from "@/components/ui/card";
+import { 
+  Calendar,
+  Phone,
+  Clock,
+  Shield,
+  CheckCircle2,
+  Mail
+} from 'lucide-react';
 
 export default function Appointments() {
   return (
-    <div className="min-h-screen bg-background">
-      <main className="py-20">
+    <div className="min-h-screen bg-white">
+      <main className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-foreground mb-4">Schedule an Appointment</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Book your appointment with our psychiatric team at your convenience
-            </p>
+          
+          <SectionHeader
+            badgeIcon={Calendar}
+            badgeText="SCHEDULE APPOINTMENT"
+            title="Book Your Consultation"
+            description="Begin your mental health journey with a confidential appointment. Choose the option that works best for you."
+            className="mb-12"
+          />
+
+          {/* Features Grid */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <Card className="border border-gray-200 rounded-none shadow-none text-center hover:border-[#004a65] transition-colors">
+              <CardContent className="p-8">
+                <div className="w-16 h-16 bg-[#004a65] bg-opacity-5 flex items-center justify-center mx-auto mb-4">
+                  <Calendar className="w-8 h-8 text-[#004a65]" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3 text-lg">Flexible Scheduling</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Choose appointment times that fit your schedule with our flexible availability.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-gray-200 rounded-none shadow-none text-center hover:border-[#004a65] transition-colors">
+              <CardContent className="p-8">
+                <div className="w-16 h-16 bg-[#004a65] bg-opacity-5 flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle2 className="w-8 h-8 text-[#004a65]" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3 text-lg">Instant Confirmation</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Receive immediate confirmation and reminders for all your scheduled appointments.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-gray-200 rounded-none shadow-none text-center hover:border-[#004a65] transition-colors">
+              <CardContent className="p-8">
+                <div className="w-16 h-16 bg-[#004a65] bg-opacity-5 flex items-center justify-center mx-auto mb-4">
+                  <Shield className="w-8 h-8 text-[#004a65]" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3 text-lg">Secure & Private</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  All appointments and patient information are protected with strict confidentiality.
+                </p>
+              </CardContent>
+            </Card>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
-            <Card>
-              <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                    <path d="M16 2v4"/>
-                    <path d="M8 2v4"/>
-                    <path d="M3 10h18"/>
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-foreground mb-2">Flexible Scheduling</h3>
-                <p className="text-muted-foreground text-sm">Choose a time that works best for your schedule</p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-6 h-6 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-foreground mb-2">Quick Confirmation</h3>
-                <p className="text-muted-foreground text-sm">Receive instant confirmation of your appointment</p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-6 h-6 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-foreground mb-2">Secure & Private</h3>
-                <p className="text-muted-foreground text-sm">Your information is protected and confidential</p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <Card className="mb-12">
+          {/* Scheduling System */}
+          <Card className="border border-gray-200 rounded-none shadow-none mb-12">
             <CardContent className="p-12">
-              <div className="text-center space-y-6">
-                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-                  <svg className="w-10 h-10 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                    <path d="M16 2v4"/>
-                    <path d="M8 2v4"/>
-                    <path d="M3 10h18"/>
-                    <path d="M8 14h.01"/>
-                    <path d="M12 14h.01"/>
-                    <path d="M16 14h.01"/>
-                    <path d="M8 18h.01"/>
-                    <path d="M12 18h.01"/>
-                    <path d="M16 18h.01"/>
-                  </svg>
+              <div className="text-center max-w-4xl mx-auto">
+                <div className="w-20 h-20 bg-[#004a65] bg-opacity-5 flex items-center justify-center mx-auto mb-6">
+                  <Calendar className="w-10 h-10 text-[#004a65]" />
                 </div>
                 
-                <div className="space-y-4">
-                  <h2 className="text-2xl font-bold text-foreground">Online Scheduling System</h2>
-                  <div className="max-w-2xl mx-auto">
-                    <div className="bg-muted border-2 border-dashed border-border rounded-lg p-8 space-y-3">
-                      <p className="text-foreground font-medium">EMR Integration Placeholder</p>
-                      <p className="text-muted-foreground text-sm">
-                        This area is reserved for your EMR is online scheduling system integration.
+                <div className="space-y-6">
+                  <h2 className="text-2xl font-semibold text-gray-900">Online Scheduling</h2>
+                  <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Book your appointment securely through our integrated scheduling system.
+                  </p>
+                  
+                  <div className="border-2 border-dashed border-gray-300 p-8 bg-gray-50">
+                    <div className="space-y-4">
+                      <h3 className="font-medium text-gray-900 text-lg">EMR Integration</h3>
+                      <p className="text-gray-600 text-sm">
+                        This area is configured for your Electronic Medical Record system is scheduling widget.
                       </p>
-                      <p className="text-muted-foreground text-sm">
-                        Your web developer can embed the scheduling widget or iframe here.
-                      </p>
-                      <div className="pt-4 text-xs text-muted-foreground font-mono bg-background/50 p-4 rounded border border-border">
-                        &lt;!-- EMR Scheduling Integration Code Goes Here --&gt;
+                      <div className="bg-white border border-gray-200 p-6 text-center">
+                        <div className="space-y-3">
+                          <Calendar className="w-12 h-12 text-gray-400 mx-auto" />
+                          <p className="text-gray-700 font-medium">Scheduling System</p>
+                          <p className="text-gray-500 text-sm">
+                            Your EMR scheduling integration will appear here
+                          </p>
+                          <button className="bg-[#004a65] text-white px-6 py-2 text-sm font-medium hover:bg-[#00374d] transition-colors mx-auto">
+                            Connect Scheduling
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -92,33 +101,88 @@ export default function Appointments() {
             </CardContent>
           </Card>
 
-          <Card>
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-foreground mb-6">Need Help Scheduling?</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-semibold text-foreground mb-3">Call Our Office</h4>
-                  <p className="text-muted-foreground mb-2">
-                    Prefer to speak with someone? Our staff is happy to assist you with scheduling.
+          {/* Alternative Contact Methods */}
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="border border-gray-200 rounded-none shadow-none">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+                  <Phone className="w-5 h-5 text-[#004a65] mr-3" />
+                  Phone Scheduling
+                </h3>
+                
+                <div className="space-y-4">
+                  <p className="text-gray-600 text-sm">
+                    Prefer to schedule by phone? Our friendly staff is available during business hours to assist you.
                   </p>
-                  <a 
-                    href="tel:559-449-1209" 
-                    className="text-primary font-semibold hover:text-primary/80 transition-colors"
-                    data-testid="appointments-phone"
-                  >
-                    (559) 449-1209
-                  </a>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-3">Office Hours</h4>
-                  <div className="text-muted-foreground space-y-1">
-                    <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
-                    <p>Saturday - Sunday: Closed</p>
+                  
+                  <div className="bg-[#004a65] bg-opacity-5 p-4 border-l-4 border-[#004a65]">
+                    <a 
+                      href="tel:559-449-1209" 
+                      className="text-[#004a65] text-2xl font-semibold hover:text-[#00374d] transition-colors flex items-center justify-center"
+                      data-testid="appointments-phone"
+                    >
+                      <Phone className="w-6 h-6 mr-2" />
+                      (559) 449-1209
+                    </a>
+                  </div>
+
+                  <div className="pt-4 border-t border-gray-100">
+                    <h4 className="font-medium text-gray-900 text-sm mb-3 flex items-center">
+                      <Clock className="w-4 h-4 mr-2 text-[#004a65]" />
+                      Phone Hours
+                    </h4>
+                    <div className="text-gray-600 text-sm space-y-1">
+                      <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                      <p>Saturday - Sunday: Closed</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-gray-200 rounded-none shadow-none">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+                  <Mail className="w-5 h-5 text-[#004a65] mr-3" />
+                  Email Inquiry
+                </h3>
+                
+                <div className="space-y-4">
+                  <p className="text-gray-600 text-sm">
+                    Have questions before scheduling? Send us an email and we will respond within 24 hours.
+                  </p>
+                  
+                  <div className="bg-gray-50 p-4">
+                    <a 
+                      href="mailto:appointments@practice.com" 
+                      className="text-[#004a65] font-medium hover:text-[#00374d] transition-colors flex items-center justify-center text-lg"
+                    >
+                      <Mail className="w-5 h-5 mr-2" />
+                      appointments@practice.com
+                    </a>
+                  </div>
+
+                  <div className="pt-4 border-t border-gray-100">
+                    <h4 className="font-medium text-gray-900 text-sm mb-2">What to Include:</h4>
+                    <ul className="text-gray-600 text-sm space-y-1">
+                      <li className="flex items-start">
+                        <CheckCircle2 className="w-4 h-4 text-[#004a65] mr-2 mt-0.5 flex-shrink-0" />
+                        Your full name and contact information
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle2 className="w-4 h-4 text-[#004a65] mr-2 mt-0.5 flex-shrink-0" />
+                        Preferred appointment type
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle2 className="w-4 h-4 text-[#004a65] mr-2 mt-0.5 flex-shrink-0" />
+                        Any specific scheduling preferences
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </main>
     </div>

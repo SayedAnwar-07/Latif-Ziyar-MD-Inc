@@ -1,17 +1,25 @@
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import { blogPosts, categories } from "@/data/blog";
+import { BookOpen, Calendar, User } from "lucide-react";
+import { blogPosts } from "@/data/blog";
+import SectionHeader from "@/components/common/Header";
 
-// ✅ UPDATED: searchParams is now a Promise
 interface BlogPageProps {
   searchParams?: Promise<{
     category?: string;
   }>;
 }
 
-// ✅ FIXED: Make page component async and await searchParams
+const categories = [
+  "All Posts",
+  "Addiction Medicine",
+  "Depression",
+  "Trauma & PTSD",
+  "Treatment Approaches",
+  "Wellness & Prevention"
+];
+
 export default async function BlogPage({ searchParams }: BlogPageProps) {
-  // ✅ Await the searchParams promise
   const resolvedSearchParams = await searchParams;
   const activeCategory = resolvedSearchParams?.category || "All Posts";
 
@@ -21,18 +29,20 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       : blogPosts.filter((post) => post.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-background">
-      <main className="py-20">
+    <div className="min-h-screen bg-white">
+      <main className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-foreground mb-4">Mental Health Blog</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Expert insights, treatment information, and resources for mental health and wellness
-            </p>
-          </div>
+          
+          <SectionHeader
+            badgeIcon={BookOpen}
+            badgeText="MENTAL HEALTH BLOG"
+            title="Expert Insights & Resources"
+            description="Professional articles, treatment information, and mental health resources to support your wellness journey."
+            className="mb-12"
+          />
 
-          {/* Tabs */}
-          <div className="flex flex-wrap gap-2 mb-12 justify-center">
+          {/* Tabs - Only 6 Categories */}
+          <div className="flex flex-wrap gap-3 mb-12 justify-center">
             {categories.map((category) => {
               const isActive = activeCategory === category;
               const href =
@@ -44,10 +54,10 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 <Link
                   key={category}
                   href={href}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  className={`px-5 py-2 text-sm font-medium transition-colors border ${
                     isActive
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-muted text-muted-foreground hover:bg-muted/80"
+                      ? "bg-[#004a65] text-white border-[#004a65]"
+                      : "bg-white text-gray-700 border-gray-300 hover:border-[#004a65] hover:text-[#004a65]"
                   }`}
                 >
                   {category}
@@ -57,35 +67,67 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           </div>
 
           {/* Blog Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {filteredPosts.map((post) => (
-              <Card key={post.slug} className="hover:shadow-lg transition-shadow">
+              <Card key={post.slug} className="border border-gray-200 rounded-none shadow-none hover:border-[#004a65] transition-colors">
                 <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
+                  {/* Category and Read Time */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-3 py-1 bg-[#004a65] bg-opacity-10 text-[#004a65] text-xs font-medium">
                       {post.category}
                     </span>
-                    <span className="text-xs text-muted-foreground">{post.readTime}</span>
+                    <span className="text-xs text-gray-500 flex items-center">
+                      <BookOpen className="w-3 h-3 mr-1" />
+                      {post.readTime}
+                    </span>
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-3 line-clamp-2">
+
+                  {/* Title */}
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2 leading-tight">
                     {post.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+
+                  {/* Excerpt */}
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed">
                     {post.excerpt}
                   </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-muted-foreground">{post.date}</span>
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="text-primary hover:text-primary/80 font-medium text-sm transition-colors"
-                    >
-                      Read More →
-                    </Link>
+
+                  {/* Meta Information */}
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div className="flex items-center space-x-2">
+                      <User className="w-3 h-3 text-gray-400" />
+                      <span className="text-xs text-gray-500">{post.author}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Calendar className="w-3 h-3 text-gray-400" />
+                      <span className="text-xs text-gray-500">{post.date}</span>
+                    </div>
                   </div>
+
+                  {/* Read More Link */}
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="mt-4 block text-[#004a65] font-medium text-sm hover:text-white transition-colors text-center border border-[#004a65] py-2 hover:bg-[#004a65] "
+                  >
+                    Read Article
+                  </Link>
                 </CardContent>
               </Card>
             ))}
           </div>
+
+          {/* No Posts Message */}
+          {filteredPosts.length === 0 && (
+            <Card className="border border-gray-200 rounded-none shadow-none">
+              <CardContent className="p-12 text-center">
+                <BookOpen className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">No Articles Found</h3>
+                <p className="text-gray-600">
+                  No blog posts found for the selected category. Please try another category.
+                </p>
+              </CardContent>
+            </Card>
+          )}
         </div>
       </main>
     </div>

@@ -1,87 +1,97 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
+import SectionHeader from "../common/Header";
+import { 
+  ClipboardList,
+  Pill,
+  CalendarClock,
+  Brain,
+  FileText,
+  HeartPulse,
+  Clock,
+  BookOpen
+} from 'lucide-react';
 
 export default function Resources() {
   const resources = [
     {
-      icon: (
-        <svg className="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-          <path d="M14 2v6h6"/>
-          <path d="M16 13H8"/>
-          <path d="M16 17H8"/>
-          <path d="M10 9H8"/>
-        </svg>
-      ),
-      title: "New Patient Forms",
-      description: "Download and complete intake forms before your first appointment",
+      icon: <ClipboardList className="w-8 h-8 text-[#004a65]" />,
+      title: "New Patient Intake",
+      description: "Complete your initial assessment forms and health history questionnaire before your first visit",
       action: "Download Forms"
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-          <path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
-          <path d="M6 7h12"/>
-          <path d="M6 12h12"/>
-          <path d="M6 17h12"/>
-        </svg>
-      ),
-      title: "Medication Guide",
-      description: "Information about psychiatric medications and their effects",
+      icon: <Pill className="w-8 h-8 text-[#004a65]" />,
+      title: "Medication Resources",
+      description: "Comprehensive information about psychiatric medications, side effects, and treatment options",
+      action: "Learn More"
+    },
+    {
+      icon: <CalendarClock className="w-8 h-8 text-[#004a65]" />,
+      title: "Appointment Guide",
+      description: "Understand our scheduling, cancellation policies, and what to expect during your sessions",
       action: "View Guide"
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-          <path d="M14 2v6h6"/>
-          <path d="M9 15h6"/>
-          <path d="M12 12v6"/>
-        </svg>
-      ),
-      title: "Appointment Policies",
-      description: "Important information about scheduling, cancellations, and office procedures",
-      action: "View Policies"
+      icon: <Brain className="w-8 h-8 text-[#004a65]" />,
+      title: "Mental Wellness Library",
+      description: "Educational materials on anxiety, depression, ADHD, and other mental health conditions",
+      action: "Browse Resources"
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-        </svg>
-      ),
-      title: "Educational Materials",
-      description: "Learn about mental health conditions and treatment options",
-      action: "Browse Library"
+      icon: <FileText className="w-8 h-8 text-[#004a65]" />,
+      title: "Treatment Plans",
+      description: "Access your personalized treatment documents and progress tracking materials",
+      action: "View Documents"
+    },
+    {
+      icon: <HeartPulse className="w-8 h-8 text-[#004a65]" />,
+      title: "Wellness Strategies",
+      description: "Mindfulness exercises, coping techniques, and daily mental health practices",
+      action: "Explore Techniques"
+    },
+    {
+      icon: <Clock className="w-8 h-8 text-[#004a65]" />,
+      title: "Crisis Resources",
+      description: "Emergency contact information and crisis intervention services available 24/7",
+      action: "Get Help Now"
+    },
+    {
+      icon: <BookOpen className="w-8 h-8 text-[#004a65]" />,
+      title: "Therapy Worksheets",
+      description: "Printable worksheets for CBT, DBT, and other therapeutic approaches",
+      action: "Download Worksheets"
     }
   ];
 
   return (
-    <section id="resources" className="py-20 bg-muted">
+    <section id="resources" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">Patient Resources</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Helpful information and resources to support your mental health journey and treatment.
-          </p>
-        </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <SectionHeader
+          badgeIcon={Brain}
+          badgeText="MENTAL HEALTH RESOURCES"
+          title="Comprehensive Support for Your Journey"
+          description="Access our complete library of mental health resources, treatment materials, and educational content designed to support your therapeutic journey and overall well-being."
+        />
+
+        {/* Updated Cards Grid - Now 2x4 layout */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {resources.map((resource, index) => (
-            <Card key={index} className="text-center" data-testid={`resource-card-${index}`}>
+            <Card key={index} className="group hover:shadow-xl transition-all duration-300 ease-in-out border border-gray-200 hover:border-[#004a65]/40" 
+            data-testid={`resource-card-${index}`}>
               <CardContent className="p-6">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 border rounded-full bg-opacity-5 flex items-center justify-center mx-auto mb-4 group-hover:bg-opacity-10 transition-all duration-300 p-2">
                   {resource.icon}
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">{resource.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">{resource.description}</p>
-                <button 
-                  className="text-primary hover:text-primary/80 font-medium text-sm transition-colors"
-                  data-testid={`resource-action-${index}`}
-                >
-                  {resource.action}
-                </button>
+                <h3 className="font-bold text-lg text-gray-900 mb-3 group-hover:text-[#004a65] transition-colors duration-300">
+                  {resource.title}
+                </h3>
+                <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                  {resource.description}
+                </p>
+                
               </CardContent>
             </Card>
           ))}

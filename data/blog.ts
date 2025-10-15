@@ -64,25 +64,6 @@ export const blogPosts: BlogPost[] = [
     ]
   },
   {
-    slug: "integrative-mental-health",
-    title: "Integrative Mental Health: Combining Conventional and Complementary Approaches",
-    excerpt: "Discover how integrative mental health combines traditional psychiatric care with evidence-based complementary therapies for comprehensive wellness.",
-    category: "Treatment Approaches",
-    readTime: "7 min read",
-    date: "March 18, 2024",
-    author: "Dr. Maria Rodriguez",
-    authorBio: "Integrative psychiatrist combining conventional and complementary medicine approaches",
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56",
-    tags: ["integrative medicine", "holistic health", "wellness", "complementary therapies"],
-    featured: false,
-    content: [
-      { header: "Integrative Mental Health", description: "Integrative mental health combines conventional psychiatric treatments with evidence-based complementary therapies to support holistic wellness." },
-      { header: "Core Principles", description: "Whole-Person Care addresses physical, emotional, mental, social, and spiritual aspects of health. Personalized Treatment tailors interventions based on individual biochemistry, genetics, and personal preferences. Prevention Focus emphasizes wellness promotion and early intervention." },
-      { header: "Complementary Modalities", description: "Nutritional Psychiatry uses Omega-3 supplementation, vitamin D optimization, probiotics for gut-brain support, and anti-inflammatory diets. Mind-Body Practices include mindfulness meditation, yoga, tai chi, biofeedback, neurofeedback, and breathing exercises. Movement Therapies include exercise, dance therapy, and outdoor activities." },
-      { header: "Evidence-Based Integration", description: "Research supports combining medications with nutritional supplements, psychotherapy with mindfulness practices, and standard care with exercise programs. Integrative approaches enhance treatment outcomes and promote overall wellness." }
-    ]
-  },
-  {
     slug: "trauma-informed-care",
     title: "Trauma-Informed Care: Creating Safe Healing Environments",
     excerpt: "Learn how trauma-informed approaches transform mental health care by recognizing the widespread impact of trauma and promoting healing-centered engagement.",
@@ -102,23 +83,22 @@ export const blogPosts: BlogPost[] = [
     ]
   },
   {
-    slug: "digital-mental-health-tools",
-    title: "Digital Mental Health Tools: Enhancing Access and Engagement",
-    excerpt: "Explore how digital tools and telepsychiatry are revolutionizing mental health care delivery and improving patient access to services.",
-    category: "Innovation & Technology",
-    readTime: "6 min read",
-    date: "March 8, 2024",
-    author: "Dr. Sarah Johnson",
-    authorBio: "Digital health specialist and telepsychiatry pioneer",
-    image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063",
-    tags: ["telehealth", "digital health", "innovation", "technology", "access"],
+    slug: "integrative-mental-health",
+    title: "Integrative Mental Health: Combining Conventional and Complementary Approaches",
+    excerpt: "Discover how integrative mental health combines traditional psychiatric care with evidence-based complementary therapies for comprehensive wellness.",
+    category: "Treatment Approaches",
+    readTime: "7 min read",
+    date: "March 18, 2024",
+    author: "Dr. Maria Rodriguez",
+    authorBio: "Integrative psychiatrist combining conventional and complementary medicine approaches",
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56",
+    tags: ["integrative medicine", "holistic health", "wellness", "complementary therapies"],
     featured: false,
     content: [
-      { header: "Digital Mental Health Tools", description: "Digital tools and telepsychiatry improve access, engagement, and monitoring for mental health care." },
-      { header: "Telepsychiatry Services", description: "Secure video consultations, remote medication management, virtual therapy sessions, and digital progress monitoring expand care accessibility." },
-      { header: "Mobile Applications", description: "Mood tracking, CBT exercises, mindfulness guides, and crisis resources provide patient support outside clinical visits." },
-      { header: "Emerging Technologies", description: "AI chatbots, virtual reality exposure therapy, wearable monitoring devices, and predictive analytics support treatment." },
-      { header: "Benefits and Considerations", description: "Digital tools increase access, reduce stigma, and enable personalized interventions. Privacy, data security, and appropriate use must be considered. Digital tools complement, not replace, the therapeutic relationship." }
+      { header: "Integrative Mental Health", description: "Integrative mental health combines conventional psychiatric treatments with evidence-based complementary therapies to support holistic wellness." },
+      { header: "Core Principles", description: "Whole-Person Care addresses physical, emotional, mental, social, and spiritual aspects of health. Personalized Treatment tailors interventions based on individual biochemistry, genetics, and personal preferences. Prevention Focus emphasizes wellness promotion and early intervention." },
+      { header: "Complementary Modalities", description: "Nutritional Psychiatry uses Omega-3 supplementation, vitamin D optimization, probiotics for gut-brain support, and anti-inflammatory diets. Mind-Body Practices include mindfulness meditation, yoga, tai chi, biofeedback, neurofeedback, and breathing exercises. Movement Therapies include exercise, dance therapy, and outdoor activities." },
+      { header: "Evidence-Based Integration", description: "Research supports combining medications with nutritional supplements, psychotherapy with mindfulness practices, and standard care with exercise programs. Integrative approaches enhance treatment outcomes and promote overall wellness." }
     ]
   },
   {
@@ -140,60 +120,16 @@ export const blogPosts: BlogPost[] = [
       { header: "Treatment Approaches", description: "Cognitive Behavioral Therapy for Insomnia (CBT-I) includes sleep restriction, stimulus control, cognitive restructuring, and relaxation techniques. Sleep Hygiene Optimization focuses on consistent schedules, optimal sleep environment, pre-sleep routines, and managing technology use. Medication Considerations include proper timing of psychiatric medications and management of side effects." },
       { header: "Integrated Treatment Benefits", description: "Improved mood, cognition, medication response, and reduced relapse risk are observed when sleep is optimized. Addressing sleep issues often leads to significant improvements in mental health outcomes." }
     ]
-  },
-  {
-    slug: "cultural-competence-mental-health",
-    title: "Cultural Competence in Mental Health Care: Beyond Awareness to Action",
-    excerpt: "Learn how culturally competent care improves treatment outcomes and reduces mental health disparities across diverse populations.",
-    category: "Diversity & Inclusion",
-    readTime: "8 min read",
-    date: "February 28, 2024",
-    author: "Dr. Amina Khan",
-    authorBio: "Cultural psychiatrist and health disparities researcher",
-    image: "https://images.unsplash.com/photo-1551836026-d5c55ac5fc78",
-    tags: ["cultural competence", "diversity", "inclusion", "health equity", "social justice"],
-    featured: false,
-    content: [
-      { header: "Cultural Competence in Mental Health", description: "Cultural competence involves understanding and responding effectively to the needs of diverse patient populations." },
-      { header: "Core Components", description: "Cultural Awareness: Recognizing one's own cultural background and biases. Cultural Knowledge: Understanding different cultural practices and worldviews. Cultural Skills: Developing appropriate assessment and treatment approaches. Cultural Encounters: Engaging with diverse populations to refine understanding." },
-      { header: "Clinical Applications", description: "Assessment Considerations include cultural formulation interviews, understanding idioms of distress, recognizing culture-bound syndromes, and assessing acculturation stress. Treatment Adaptations include incorporating cultural healing practices, providing language-appropriate services, involving family and community, and integrating religious or spiritual elements." },
-      { header: "Addressing Health Disparities", description: "Barriers to Care include stigma, language barriers, mistrust of healthcare systems, and financial limitations. Solutions and Strategies include community outreach, bilingual and bicultural staff, cultural consultation services, and advocacy for systemic change. Organizational Cultural Competence promotes diverse representation, ongoing staff training, inclusive policies, and partnerships with communities." }
-    ]
-  },
-  {
-    slug: "mindfulness-based-interventions",
-    title: "Mindfulness-Based Interventions: Science and Practice",
-    excerpt: "Explore the evidence base for mindfulness practices in mental health treatment and learn practical applications for various conditions.",
-    category: "Therapy & Interventions",
-    readTime: "6 min read",
-    date: "February 25, 2024",
-    author: "Dr. Emily Chen",
-    authorBio: "Clinical psychologist and mindfulness researcher",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b",
-    tags: ["mindfulness", "meditation", "stress reduction", "CBT", "well-being"],
-    featured: false,
-    content: [
-      { header: "Mindfulness in Mental Health", description: "Mindfulness-based interventions have strong empirical support for improving mental health across various conditions." },
-      { header: "What is Mindfulness?", description: "Core Components include present-moment awareness, non-judgmental observation, acceptance of experience, and intentional attention. Evidence-Based Programs include Mindfulness-Based Stress Reduction (MBSR), Mindfulness-Based Cognitive Therapy (MBCT), and Dialectical Behavior Therapy (DBT). Clinical Applications include prevention of depressive relapse, reduction of anxiety, awareness of substance use triggers, and changing pain perception. Practical Implementation involves short daily exercises, guided resources, and integration into daily life." }
-    ]
   }
 ];
-
 
 export const categories = [
   "All Posts",
   "Addiction Medicine",
   "Depression",
-  "Anxiety Disorders",
-  "ADHD",
-  "Medication Management",
-  "Patient Resources",
   "Trauma & PTSD",
   "Treatment Approaches",
-  "Innovation & Technology",
-  "Wellness & Prevention",
-  "Diversity & Inclusion",
-  "Therapy & Interventions"
+  "Wellness & Prevention"
 ];
 
 export const authors = [
@@ -222,38 +158,17 @@ export const authors = [
     image: "/images/authors/dr-chen.jpg"
   },
   {
-    name: "Dr. Sarah Johnson",
-    specialization: "Digital Psychiatry",
-    bio: "Telepsychiatry and digital health innovation",
-    image: "/images/authors/dr-johnson.jpg"
-  },
-  {
     name: "Dr. Robert Williams",
     specialization: "Sleep Medicine",
     bio: "Behavioral sleep medicine and mental health",
     image: "/images/authors/dr-williams.jpg"
-  },
-  {
-    name: "Dr. Amina Khan",
-    specialization: "Cultural Psychiatry",
-    bio: "Health disparities and culturally competent care",
-    image: "/images/authors/dr-khan.jpg"
-  },
-  {
-    name: "Dr. Emily Chen",
-    specialization: "Mindfulness & Therapy",
-    bio: "Evidence-based mindfulness interventions",
-    image: "/images/authors/dr-chen-emily.jpg"
   }
 ];
 
 export const tags = [
   "addiction", "recovery", "MAT", "substance use", "treatment",
   "depression", "mood disorders", "therapy", "medication",
-  "integrative medicine", "holistic health", "wellness",
   "trauma", "PTSD", "healing", "safety",
-  "telehealth", "digital health", "innovation", "technology",
-  "sleep", "circadian rhythm", "insomnia",
-  "cultural competence", "diversity", "inclusion", "health equity",
-  "mindfulness", "meditation", "stress reduction"
+  "integrative medicine", "holistic health", "wellness",
+  "sleep", "circadian rhythm", "insomnia"
 ];
