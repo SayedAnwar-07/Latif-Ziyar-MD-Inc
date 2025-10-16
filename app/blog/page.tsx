@@ -16,7 +16,11 @@ const categories = [
   "Depression",
   "Trauma & PTSD",
   "Treatment Approaches",
-  "Wellness & Prevention"
+  "Wellness & Prevention",
+  "Anxiety Disorders",
+  "ADHD",
+  "Medication Management",
+  "Patient Resources"
 ];
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
@@ -41,8 +45,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             className="mb-12"
           />
 
-          {/* Tabs - Only 6 Categories */}
-          <div className="flex flex-wrap gap-3 mb-12 justify-center">
+          {/* Tabs Categories */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 mb-12 justify-center">
             {categories.map((category) => {
               const isActive = activeCategory === category;
               const href =
@@ -54,7 +58,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 <Link
                   key={category}
                   href={href}
-                  className={`px-5 py-2 text-sm font-medium transition-colors border ${
+                  className={`px-5 py-2 text-sm font-medium transition-colors border text-center ${
                     isActive
                       ? "bg-[#004a65] text-white border-[#004a65]"
                       : "bg-white text-gray-700 border-gray-300 hover:border-[#004a65] hover:text-[#004a65]"

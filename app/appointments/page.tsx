@@ -25,9 +25,9 @@ export default function Appointments() {
 
           {/* Features Grid */}
           <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <Card className="border border-gray-200 rounded-none shadow-none text-center hover:border-[#004a65] transition-colors">
+            <Card className="group hover:shadow-xl transition-all duration-300 ease-in-out border border-gray-200 hover:border-[#004a65]/40 text-center">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-[#004a65] bg-opacity-5 flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 border border-[#004a65]/20 rounded-full bg-opacity-5 flex items-center justify-center mx-auto mb-4">
                   <Calendar className="w-8 h-8 text-[#004a65]" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-3 text-lg">Flexible Scheduling</h3>
@@ -37,9 +37,9 @@ export default function Appointments() {
               </CardContent>
             </Card>
 
-            <Card className="border border-gray-200 rounded-none shadow-none text-center hover:border-[#004a65] transition-colors">
+            <Card className="group hover:shadow-xl transition-all duration-300 ease-in-out border border-gray-200 hover:border-[#004a65]/40 text-center">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-[#004a65] bg-opacity-5 flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 border border-[#004a65]/20 rounded-full bg-opacity-5 flex items-center justify-center mx-auto mb-4">
                   <CheckCircle2 className="w-8 h-8 text-[#004a65]" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-3 text-lg">Instant Confirmation</h3>
@@ -49,9 +49,9 @@ export default function Appointments() {
               </CardContent>
             </Card>
 
-            <Card className="border border-gray-200 rounded-none shadow-none text-center hover:border-[#004a65] transition-colors">
+            <Card className="group hover:shadow-xl transition-all duration-300 ease-in-out border border-gray-200 hover:border-[#004a65]/40 text-center">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-[#004a65] bg-opacity-5 flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 border border-[#004a65]/20 rounded-full bg-opacity-5 flex items-center justify-center mx-auto mb-4">
                   <Shield className="w-8 h-8 text-[#004a65]" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-3 text-lg">Secure & Private</h3>
@@ -66,7 +66,7 @@ export default function Appointments() {
           <Card className="border border-gray-200 rounded-none shadow-none mb-12">
             <CardContent className="p-12">
               <div className="text-center max-w-4xl mx-auto">
-                <div className="w-20 h-20 bg-[#004a65] bg-opacity-5 flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 border border-[#004a65]/20 rounded-full bg-opacity-5 flex items-center justify-center mx-auto mb-6">
                   <Calendar className="w-10 h-10 text-[#004a65]" />
                 </div>
                 

@@ -1,3 +1,13 @@
+import Addiction from "@/assets/Addiction.png"
+import ADHD from "@/assets/ADHD.png"
+import Anxiety from "@/assets/Anxiety.png"
+import Depression from "@/assets/Depression.jpeg"
+import Medication from "@/assets/Medication.jpg"
+import PTSD from "@/assets/PTSD.jpeg"
+import Patient from "@/assets/Patient.jpg"
+import Treatment from "@/assets/Treatment.png"
+import Wellness from "@/assets/Wellness.png"
+
 export interface BlogContent {
   header: string;
   description: string;
@@ -19,6 +29,7 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  // Existing posts
   {
     slug: "understanding-addiction-medicine",
     title: "Understanding Addiction Medicine: A Comprehensive Approach to Recovery",
@@ -28,16 +39,16 @@ export const blogPosts: BlogPost[] = [
     date: "March 15, 2024",
     author: "Dr. Jane Smith",
     authorBio: "Board-certified addiction medicine specialist with 15+ years of experience in substance use disorder treatment",
-    image: "https://images.unsplash.com/photo-1581092334904-97a6f34af8f3",
+    image: Addiction.src,
     tags: ["addiction", "recovery", "MAT", "substance use", "treatment"],
     featured: true,
     content: [
       { header: "Understanding Addiction Medicine", description: "Addiction medicine is a specialized field focused on preventing, evaluating, diagnosing, treating, and supporting recovery for individuals with substance use disorders. Addiction is recognized as a chronic brain disease requiring long-term management and support." },
-      { header: "Evidence-Based Treatment Approaches", description: "Medication-Assisted Treatment (MAT) combines FDA-approved medications with behavioral therapies. Common medications include Buprenorphine and Methadone for opioid use disorder, Naltrexone for opioid and alcohol use disorders, and Acamprosate and Disulfiram for alcohol use disorder." },
-      { header: "Behavioral Therapies", description: "Cognitive Behavioral Therapy helps patients recognize and change negative thought patterns. Motivational Interviewing enhances motivation for change. Contingency Management provides positive reinforcement for healthy behaviors. Family Therapy involves family members in the recovery process." },
-      { header: "Comprehensive Care Model", description: "Our integrated approach includes medical and psychological assessments, individualized treatment planning, treatment for co-occurring disorders, relapse prevention strategies, and aftercare with ongoing support." },
-      { header: "The Recovery Journey", description: "Recovery is a lifelong process involving detoxification and stabilization, early abstinence and treatment engagement, maintaining abstinence through lifestyle changes, and advanced recovery with personal growth." },
-      { header: "Success Factors", description: "Key factors for successful recovery include strong therapeutic alliances, social support systems, addressing underlying trauma, developing healthy coping mechanisms, and ongoing monitoring." },
+      { header: "Evidence-Based Treatment Approaches", description: "Medication-Assisted Treatment (MAT) combines FDA-approved medications with behavioral therapies." },
+      { header: "Behavioral Therapies", description: "Cognitive Behavioral Therapy, Motivational Interviewing, Contingency Management, and Family Therapy play key roles." },
+      { header: "Comprehensive Care Model", description: "Our integrated approach includes assessments, individualized treatment planning, co-occurring disorder care, and relapse prevention." },
+      { header: "The Recovery Journey", description: "Recovery is a lifelong process involving detox, abstinence, maintenance, and personal growth." },
+      { header: "Success Factors", description: "Key factors include strong therapeutic alliances, social support, trauma-informed care, and ongoing monitoring." },
       { header: "Contact Information", description: "If you or someone you know is struggling with addiction, contact our clinic to learn about treatment options." }
     ]
   },
@@ -50,16 +61,16 @@ export const blogPosts: BlogPost[] = [
     date: "March 10, 2024",
     author: "Dr. John Doe",
     authorBio: "Psychiatrist specializing in mood disorders and treatment-resistant depression",
-    image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528",
+    image: Depression.src,
     tags: ["depression", "mood disorders", "treatment", "therapy", "medication"],
     featured: true,
     content: [
       { header: "Comprehensive Depression Treatment", description: "Depression is a complex mental health condition affecting millions worldwide. Effective treatment requires a multifaceted approach tailored to individual needs." },
-      { header: "Treatment Modalities", description: "Psychotherapy Approaches include Cognitive Behavioral Therapy to identify and change negative thought patterns, Interpersonal Therapy addressing relationship issues, Psychodynamic Therapy exploring unconscious patterns, and Mindfulness-Based Cognitive Therapy combining CBT with mindfulness practices." },
-      { header: "Medication Management", description: "Common medications include SSRIs, SNRIs, atypical antidepressants, and tricyclic antidepressants for treatment-resistant cases." },
-      { header: "Advanced Treatments", description: "Options include Transcranial Magnetic Stimulation, Electroconvulsive Therapy, Ketamine Infusion Therapy, and Vagus Nerve Stimulation." },
-      { header: "Lifestyle Interventions", description: "Exercise, sleep hygiene, nutrition, stress management, and social support all enhance treatment outcomes." },
-      { header: "Measuring Progress", description: "PHQ-9 depression scale monitoring, functional assessments, quality of life measures, and patient-reported outcomes track improvement." },
+      { header: "Treatment Modalities", description: "Psychotherapy approaches include CBT, IPT, Psychodynamic Therapy, and MBCT." },
+      { header: "Medication Management", description: "Common medications include SSRIs, SNRIs, atypical antidepressants, and tricyclic antidepressants." },
+      { header: "Advanced Treatments", description: "Options include TMS, ECT, Ketamine Infusion, and VNS." },
+      { header: "Lifestyle Interventions", description: "Exercise, sleep hygiene, nutrition, stress management, and social support enhance treatment outcomes." },
+      { header: "Measuring Progress", description: "PHQ-9 scores, functional assessments, and quality of life measures are used to track improvement." },
       { header: "Treatment Success", description: "Combining multiple approaches with regular follow-up care increases effectiveness." }
     ]
   },
@@ -72,14 +83,14 @@ export const blogPosts: BlogPost[] = [
     date: "March 12, 2024",
     author: "Dr. Michael Chen",
     authorBio: "Clinical psychologist specializing in trauma treatment and PTSD",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b",
+    image: PTSD.src,
     tags: ["trauma", "PTSD", "healing", "safety", "recovery"],
     featured: true,
     content: [
-      { header: "Trauma-Informed Care", description: "Trauma-informed care recognizes the widespread impact of trauma and creates environments that promote healing and recovery." },
-      { header: "Key Principles", description: "Safety: Creating physical and emotional safety for patients and staff. Trustworthiness and Transparency: Building trust through clear communication and consistent boundaries. Peer Support: Incorporating lived experiences into the healing process. Collaboration and Mutuality: Partnering with patients throughout their treatment journey. Empowerment and Choice: Prioritizing patient autonomy and decision-making." },
-      { header: "Clinical Applications", description: "Assessment Considerations include universal trauma screening, culturally sensitive evaluation, and understanding trauma responses as adaptations. Treatment Modalities include Trauma-Focused CBT, EMDR, Somatic Experiencing, and Narrative Exposure Therapy." },
-      { header: "Organizational Implementation", description: "Staff training, policy review, environmental modifications, and quality improvement enhance trauma-informed practices. Trauma-informed care benefits patients by creating compassionate and effective treatment environments." }
+      { header: "Trauma-Informed Care", description: "Recognizing trauma's impact and creating environments that promote healing and recovery." },
+      { header: "Key Principles", description: "Safety, Trust, Peer Support, Collaboration, and Empowerment are foundational." },
+      { header: "Clinical Applications", description: "Includes trauma screening, TF-CBT, EMDR, and Somatic Experiencing." },
+      { header: "Organizational Implementation", description: "Staff training, environmental changes, and policy reviews foster trauma-informed practices." }
     ]
   },
   {
@@ -91,14 +102,14 @@ export const blogPosts: BlogPost[] = [
     date: "March 18, 2024",
     author: "Dr. Maria Rodriguez",
     authorBio: "Integrative psychiatrist combining conventional and complementary medicine approaches",
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56",
+    image: Treatment.src,
     tags: ["integrative medicine", "holistic health", "wellness", "complementary therapies"],
     featured: false,
     content: [
-      { header: "Integrative Mental Health", description: "Integrative mental health combines conventional psychiatric treatments with evidence-based complementary therapies to support holistic wellness." },
-      { header: "Core Principles", description: "Whole-Person Care addresses physical, emotional, mental, social, and spiritual aspects of health. Personalized Treatment tailors interventions based on individual biochemistry, genetics, and personal preferences. Prevention Focus emphasizes wellness promotion and early intervention." },
-      { header: "Complementary Modalities", description: "Nutritional Psychiatry uses Omega-3 supplementation, vitamin D optimization, probiotics for gut-brain support, and anti-inflammatory diets. Mind-Body Practices include mindfulness meditation, yoga, tai chi, biofeedback, neurofeedback, and breathing exercises. Movement Therapies include exercise, dance therapy, and outdoor activities." },
-      { header: "Evidence-Based Integration", description: "Research supports combining medications with nutritional supplements, psychotherapy with mindfulness practices, and standard care with exercise programs. Integrative approaches enhance treatment outcomes and promote overall wellness." }
+      { header: "Integrative Mental Health", description: "Combining psychiatric treatments with complementary therapies to support holistic wellness." },
+      { header: "Core Principles", description: "Whole-Person Care, Personalized Treatment, and Prevention Focus guide integrative care." },
+      { header: "Complementary Modalities", description: "Nutritional psychiatry, mindfulness, yoga, tai chi, biofeedback, and movement therapies are included." },
+      { header: "Evidence-Based Integration", description: "Research supports combining medication, psychotherapy, and lifestyle interventions." }
     ]
   },
   {
@@ -110,15 +121,100 @@ export const blogPosts: BlogPost[] = [
     date: "March 5, 2024",
     author: "Dr. Robert Williams",
     authorBio: "Sleep medicine specialist and behavioral sleep researcher",
-    image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55",
+    image: Wellness.src,
     tags: ["sleep", "wellness", "prevention", "circadian rhythm", "insomnia"],
     featured: false,
     content: [
-      { header: "Sleep and Mental Health", description: "Sleep and mental health share a bidirectional relationship, each affecting the other significantly." },
-      { header: "The Science Behind Sleep", description: "Sleep Architecture: NREM sleep supports memory consolidation and physical restoration. REM sleep supports emotional processing and creativity. Neurotransmitter Regulation: Sleep influences serotonin, dopamine, norepinephrine, and GABA systems." },
-      { header: "Common Sleep Disorders", description: "Insomnia: Difficulty falling or staying asleep, often associated with anxiety and depression. Sleep Apnea: Breathing interruptions during sleep, linked to cognitive impairment. Circadian Rhythm Disorders: Misalignment between the internal clock and external environment can impact mental health." },
-      { header: "Treatment Approaches", description: "Cognitive Behavioral Therapy for Insomnia (CBT-I) includes sleep restriction, stimulus control, cognitive restructuring, and relaxation techniques. Sleep Hygiene Optimization focuses on consistent schedules, optimal sleep environment, pre-sleep routines, and managing technology use. Medication Considerations include proper timing of psychiatric medications and management of side effects." },
-      { header: "Integrated Treatment Benefits", description: "Improved mood, cognition, medication response, and reduced relapse risk are observed when sleep is optimized. Addressing sleep issues often leads to significant improvements in mental health outcomes." }
+      { header: "Sleep and Mental Health", description: "Sleep and mental health are closely linked, each influencing the other." },
+      { header: "The Science Behind Sleep", description: "NREM supports memory; REM supports emotion regulation; neurotransmitters play a key role." },
+      { header: "Common Sleep Disorders", description: "Insomnia, sleep apnea, and circadian rhythm disorders impact mental health." },
+      { header: "Treatment Approaches", description: "CBT-I, sleep hygiene optimization, and medication adjustments are effective." },
+      { header: "Integrated Treatment Benefits", description: "Improved mood, cognition, and reduced relapse risk are observed when sleep is optimized." }
+    ]
+  },
+
+  // ✅ New Category: Anxiety Disorders
+  {
+    slug: "understanding-anxiety-disorders",
+    title: "Understanding Anxiety Disorders: Symptoms, Causes, and Treatments",
+    excerpt: "Anxiety disorders are among the most common mental health conditions. Learn how to recognize symptoms and explore evidence-based treatments.",
+    category: "Anxiety Disorders",
+    readTime: "8 min read",
+    date: "March 20, 2024",
+    author: "Dr. Emma Carter",
+    authorBio: "Psychiatrist specializing in anxiety and mood disorders",
+    image: Anxiety.src,
+    tags: ["anxiety", "GAD", "panic disorder", "CBT", "treatment"],
+    featured: true,
+    content: [
+      { header: "What Are Anxiety Disorders?", description: "Anxiety disorders involve excessive fear or worry that interferes with daily functioning. Common types include Generalized Anxiety Disorder, Panic Disorder, Social Anxiety Disorder, and Phobias." },
+      { header: "Common Symptoms", description: "Symptoms include persistent worry, restlessness, rapid heart rate, difficulty sleeping, and irritability." },
+      { header: "Causes and Risk Factors", description: "A combination of genetic, biological, environmental, and psychological factors contribute to anxiety disorders." },
+      { header: "Treatment Approaches", description: "CBT, exposure therapy, mindfulness practices, and medication such as SSRIs or benzodiazepines are commonly used." },
+      { header: "Self-Management Strategies", description: "Relaxation techniques, breathing exercises, regular physical activity, and sleep hygiene can help manage anxiety." }
+    ]
+  },
+
+  // ✅ New Category: ADHD
+  {
+    slug: "adhd-management-strategies",
+    title: "ADHD Management: Strategies for Focus and Success",
+    excerpt: "Learn about ADHD symptoms, diagnosis, and evidence-based strategies to support daily functioning and well-being.",
+    category: "ADHD",
+    readTime: "9 min read",
+    date: "March 25, 2024",
+    author: "Dr. Alex Turner",
+    authorBio: "Child and adolescent psychiatrist specializing in ADHD and behavioral interventions",
+    image: ADHD.src,
+    tags: ["ADHD", "focus", "executive function", "behavioral therapy", "medication"],
+    featured: true,
+    content: [
+      { header: "Understanding ADHD", description: "ADHD is a neurodevelopmental disorder characterized by inattention, hyperactivity, and impulsivity. It affects both children and adults." },
+      { header: "Symptoms and Diagnosis", description: "Symptoms include difficulty sustaining attention, forgetfulness, impulsive actions, and trouble with organization. Diagnosis involves comprehensive evaluation." },
+      { header: "Treatment Options", description: "Behavioral therapy, parent training, coaching, and stimulant or non-stimulant medications are evidence-based approaches." },
+      { header: "Daily Life Strategies", description: "Creating structure, using reminders, breaking tasks into smaller steps, and practicing mindfulness can improve functioning." }
+    ]
+  },
+
+  // ✅ New Category: Medication Management
+  {
+    slug: "medication-management-guide",
+    title: "Medication Management in Mental Health: A Complete Guide",
+    excerpt: "Effective medication management is key to optimizing treatment outcomes for mental health conditions. Learn how we ensure safety and effectiveness.",
+    category: "Medication Management",
+    readTime: "8 min read",
+    date: "March 28, 2024",
+    author: "Dr. Lisa Nguyen",
+    authorBio: "Board-certified psychiatrist and psychopharmacology specialist",
+    image: Medication.src,
+    tags: ["medication", "psychopharmacology", "management", "treatment"],
+    featured: false,
+    content: [
+      { header: "The Role of Medication", description: "Medications help manage symptoms of depression, anxiety, ADHD, and other mental health conditions." },
+      { header: "Types of Psychiatric Medications", description: "Includes antidepressants, anxiolytics, mood stabilizers, stimulants, and antipsychotics." },
+      { header: "Monitoring and Safety", description: "Regular follow-ups, lab work, and side-effect monitoring ensure safe and effective use." },
+      { header: "Collaborative Care", description: "We work closely with patients to personalize treatment and integrate therapy with medication when appropriate." }
+    ]
+  },
+
+  // ✅ New Category: Patient Resources
+  {
+    slug: "patient-resources-mental-health",
+    title: "Patient Resources: Empowering You in Your Mental Health Journey",
+    excerpt: "Explore practical tools, support options, and educational resources designed to help you take an active role in your mental health care.",
+    category: "Patient Resources",
+    readTime: "6 min read",
+    date: "March 30, 2024",
+    author: "Dr. Sarah Mitchell",
+    authorBio: "Clinical psychologist and patient advocate",
+    image: Patient.src,
+    tags: ["resources", "support", "education", "mental health"],
+    featured: false,
+    content: [
+      { header: "Educational Materials", description: "Access guides, fact sheets, and FAQs to better understand mental health conditions and treatments." },
+      { header: "Support Groups", description: "Peer support can provide connection, encouragement, and practical coping strategies." },
+      { header: "Crisis and Helpline Information", description: "Find immediate help through crisis hotlines and mental health services." },
+      { header: "Self-Care Tools", description: "Use mindfulness apps, journals, and mood trackers to support your journey." }
     ]
   }
 ];
@@ -129,7 +225,11 @@ export const categories = [
   "Depression",
   "Trauma & PTSD",
   "Treatment Approaches",
-  "Wellness & Prevention"
+  "Wellness & Prevention",
+  "Anxiety Disorders",
+  "ADHD",
+  "Medication Management",
+  "Patient Resources"
 ];
 
 export const authors = [
@@ -162,6 +262,30 @@ export const authors = [
     specialization: "Sleep Medicine",
     bio: "Behavioral sleep medicine and mental health",
     image: "/images/authors/dr-williams.jpg"
+  },
+  {
+    name: "Dr. Emma Carter",
+    specialization: "Anxiety Disorders",
+    bio: "Psychiatrist specializing in anxiety and mood disorders",
+    image: "/images/authors/dr-carter.jpg"
+  },
+  {
+    name: "Dr. Alex Turner",
+    specialization: "ADHD & Behavioral Health",
+    bio: "Child and adolescent psychiatrist specializing in ADHD and behavioral interventions",
+    image: "/images/authors/dr-turner.jpg"
+  },
+  {
+    name: "Dr. Lisa Nguyen",
+    specialization: "Psychopharmacology",
+    bio: "Board-certified psychiatrist and medication management expert",
+    image: "/images/authors/dr-nguyen.jpg"
+  },
+  {
+    name: "Dr. Sarah Mitchell",
+    specialization: "Clinical Psychology & Patient Advocacy",
+    bio: "Clinical psychologist focused on empowering patients through education and support",
+    image: "/images/authors/dr-mitchell.jpg"
   }
 ];
 
@@ -170,5 +294,9 @@ export const tags = [
   "depression", "mood disorders", "therapy", "medication",
   "trauma", "PTSD", "healing", "safety",
   "integrative medicine", "holistic health", "wellness",
-  "sleep", "circadian rhythm", "insomnia"
+  "sleep", "circadian rhythm", "insomnia",
+  "anxiety", "GAD", "panic disorder",
+  "ADHD", "focus", "executive function",
+  "psychopharmacology", "management",
+  "resources", "support", "education"
 ];
