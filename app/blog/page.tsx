@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { BookOpen, Calendar, User } from "lucide-react";
 import { blogPosts } from "@/data/blog";
 import SectionHeader from "@/components/common/Header";
+import Image from "next/image";
 
 interface BlogPageProps {
   searchParams?: Promise<{
@@ -85,6 +86,18 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                       {post.readTime}
                     </span>
                   </div>
+
+                  {/* image */}
+                  <div className="mb-4 overflow-hidden">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      width={400}
+                      height={250}
+                      className="h-[200px] w-full object-cover"
+                    />
+                  </div>
+
 
                   {/* Title */}
                   <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2 leading-tight">
